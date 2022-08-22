@@ -2,10 +2,10 @@ from fastapi import APIRouter
 
 inicial = APIRouter(
     prefix="/home",
-    tags=["home"],
+    tags=["Home"],
 )
 
 
 @inicial.get("/")
 async def home():
-    return {"message": "Hello World"}
+    return {"Twitter API": "Working - Index"}

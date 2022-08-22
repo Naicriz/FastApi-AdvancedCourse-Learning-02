@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from endpoints.inicial import inicial
+from endpoints.inicial_routes import inicial_routes
 
 app = FastAPI()
 
-app.include_router(inicial)
+app.include_router(inicial_routes)
