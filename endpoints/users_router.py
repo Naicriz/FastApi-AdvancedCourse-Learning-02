@@ -4,7 +4,7 @@ from typing import List
 # FastAPI
 from fastapi import APIRouter
 
-from models import User
+from models import User, UserUpdate
 
 user_router = APIRouter(
     prefix="/users",
@@ -18,6 +18,24 @@ user_router = APIRouter(
                   status_code=201,
                   summary="Register a new user")
 async def signup():
+    """
+    Signup
+
+    This path operation will register a new user in the application.
+
+    Parameters:
+        - Request Body: user: UserRegister
+
+    
+    Returns a json with the basic user information.
+        - user_id: UUID
+            - first_name: str
+            - last_name: str
+            - birth_date: str
+            - email: str
+            - username: str
+            - password: str
+    """
     pass
 
 
@@ -59,7 +77,7 @@ async def delete_user():
 
 # Update user by ID
 @user_router.put(path="/{user_id}",
-                 response_model=User,
+                 response_model=UserUpdate,
                  status_code=200,
                  summary="Update a user")
 async def update_user():
