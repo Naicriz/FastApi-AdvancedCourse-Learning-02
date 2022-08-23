@@ -13,7 +13,7 @@ tweet_router = APIRouter(
 
 
 # Show all tweets
-@tweet_router.get(path="/",
+@tweet_router.get(path="",
                   response_model=List[Tweet],
                   status_code=200,
                   summary="Show all tweets")
@@ -40,7 +40,7 @@ async def show_tweet():
 
 
 # Delete a tweet by ID
-@tweet_router.delete(path="/{tweet_id}/delete",
+@tweet_router.delete(path="/{tweet_id}",
                      response_model=Tweet,
                      status_code=200,
                      summary="Delete a tweet")
@@ -49,7 +49,7 @@ async def delete_tweet():
 
 
 # Update a tweet by ID
-@tweet_router.put(path="/{tweet_id}/delete",
+@tweet_router.put(path="/{tweet_id}",
                   response_model=Tweet,
                   status_code=200,
                   summary="Update a tweet")
