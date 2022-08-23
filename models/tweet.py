@@ -1,11 +1,8 @@
-from datetime import datetime
-from typing import Optional
-from uuid import UUID
-
+from models import UUID, Optional, datetime
 # Pydantic
-from pydantic import BaseModel, Field
+from models import BaseModel, Field
 
-from models.user import User
+from models import User
 
 # Models
 

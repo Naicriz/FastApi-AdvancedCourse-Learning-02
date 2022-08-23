@@ -12,6 +12,7 @@ users_routes = APIRouter(
 )
 
 
+# Register user
 @users_routes.post(path="/signup",
                    response_model=User,
                    status_code=201,
@@ -20,6 +21,7 @@ async def signup():
     pass
 
 
+# Login user
 @users_routes.post(path="/login",
                    response_model=User,
                    status_code=200,
@@ -28,6 +30,7 @@ async def login():
     pass
 
 
+# Show all users
 @users_routes.get(path="/users",
                   response_model=List[User],
                   status_code=200,
@@ -36,6 +39,7 @@ async def show_all_users():
     pass
 
 
+# Show user by ID
 @users_routes.get(path="/users/{user_id}",
                   response_model=User,
                   status_code=200,
@@ -44,6 +48,7 @@ async def show_user():
     pass
 
 
+# Delete user by ID
 @users_routes.delete(path="/users/{user_id}/delete",
                      response_model=User,
                      status_code=200,
@@ -52,6 +57,7 @@ async def delete_user():
     pass
 
 
+# Update user by ID
 @users_routes.put(path="/users/{user_id}/update",
                   response_model=User,
                   status_code=200,
