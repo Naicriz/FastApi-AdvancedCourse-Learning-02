@@ -1,4 +1,8 @@
-from models import UUID, Optional, date
+# Python Native Library
+from typing import Optional
+from datetime import date
+from uuid import UUID
+
 # Pydantic
 from pydantic import BaseModel, EmailStr, Field
 

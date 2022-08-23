@@ -1,8 +1,12 @@
-from models import UUID, Optional, datetime
-# Pydantic
-from models import BaseModel, Field
+# Python Native Library
+from typing import Optional
+from datetime import datetime
+from uuid import UUID
 
-from models import User
+# Pydantic
+from pydantic import BaseModel, Field
+
+from . import User
 
 # Models
 
