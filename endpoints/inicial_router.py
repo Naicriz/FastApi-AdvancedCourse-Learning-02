@@ -6,6 +6,6 @@ inicial_router = APIRouter(
 )
 
 
-@inicial_router.get("/")
+@inicial_router.get("")
 async def home():
     return {"Twitter API": "Working - Index"}
