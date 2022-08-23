@@ -1,11 +1,12 @@
-from datetime import datetime
+# Python Native Library
 from typing import Optional
+from datetime import datetime
 from uuid import UUID
 
 # Pydantic
 from pydantic import BaseModel, Field
 
-from models.user import User
+from . import User
 
 # Models
 
