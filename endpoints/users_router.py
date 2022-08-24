@@ -1,10 +1,11 @@
 # Python
+import json
 from typing import List
 
 # FastAPI
-from fastapi import APIRouter
+from fastapi import APIRouter, Body
 
-from models import User
+from models import User, UserUpdateReg
 
 user_router = APIRouter(
     prefix="/users",
@@ -17,8 +18,32 @@ user_router = APIRouter(
                   response_model=User,
                   status_code=201,
                   summary="Register a new user")
-async def signup():
-    pass
+async def signup(user: UserUpdateReg = Body(...)):
+    """
+    # **Signup**
+
+    This path operation will register a new user in the application.
+
+    **Parameters:**\n
+    Request Body:
+    - `user: UserUpdateReg`
+
+    Returns a json with the basic user information:
+    - `user_id: uuid`
+    - `email: emailstr`
+    - `first_name: str`
+    - `last_name: str`
+    - `username: str`
+    - `birth_date: date`
+    """
+    with open("utils/users.json", "r+", encoding="utf_8") as f:
+        results = json.loads(f.read())  # List[User]
+        user_dict = user.dict()  # dict
+        user_dict["user_id"] = str(user_dict["user_id"])  # UUID to str
+        user_dict["birth_day"] = str(user_dict["birth_day"])  # date to str
+        results.append(user_dict)  # Add new user to the list
+        f.seek(0)  # Go to the beginning of the file to overwrite it
+        f.write(json.dumps(results))  # Write the new list to the file (json)
 
 
 # Login user
@@ -59,7 +84,7 @@ async def delete_user():
 
 # Update user by ID
 @user_router.put(path="/{user_id}",
-                 response_model=User,
+                 response_model=UserUpdateReg,
                  status_code=200,
                  summary="Update a user")
 async def update_user():
