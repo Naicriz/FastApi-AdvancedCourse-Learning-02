@@ -42,9 +42,5 @@ class UserLogin(PasswordMixin, UserBase):
     pass
 
 
-class UserRegister(PasswordMixin, User):
-    pass
-
-
-class UserUpdate(PasswordMixin, User):
+class UserUpdateReg(PasswordMixin, User):
     pass
