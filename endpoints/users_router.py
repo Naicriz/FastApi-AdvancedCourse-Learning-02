@@ -61,7 +61,25 @@ async def login():
                  status_code=200,
                  summary="Show all users")
 async def show_all_users():
-    pass
+    """
+    # **Show all users**
+
+    This path operation shows all users in the application.
+
+    **Parameters:**\n
+    - `None`
+
+    Returns a json list with all users in the app, with the following keys:
+    - `user_id: uuid`
+    - `email: emailstr`
+    - `first_name: str`
+    - `last_name: str`
+    - `username: str`
+    - `birth_date: date`
+    """
+    with open("utils/users.json", "r", encoding="utf-8") as f:
+        results = json.loads(f.read())  # List[User]
+        return results
 
 
 # Show user by ID
