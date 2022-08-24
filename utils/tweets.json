@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "algo chido juasjuas",
+        "created_at": "2022-08-24 01:44:03.779702",
+        "updated_at": "2022-08-24 01:44:03.779709",
+        "created_by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "user@example.com",
+            "username": "stringp69",
+            "first_name": "stringo",
+            "last_name": "salas",
+            "birth_day": "2022-08-24"
+        }
+    },
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "algo chido juasjuas",
+        "created_at": "2022-08-24 01:44:03.779702",
+        "updated_at": "2022-08-24 01:44:03.779709",
+        "created_by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "user@example.com",
+            "username": "stringp69",
+            "first_name": "stringo",
+            "last_name": "salas",
+            "birth_day": "2022-08-24"
+        }
+    }
+]
