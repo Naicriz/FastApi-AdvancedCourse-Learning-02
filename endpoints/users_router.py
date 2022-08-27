@@ -37,13 +37,36 @@ async def signup(user: UserUpdateReg = Body(...)):
     - `birth_date: date`
     """
     with open("utils/users.json", "r+", encoding="utf_8") as f:
-        results = json.loads(f.read())  # List[User]
-        user_dict = user.dict()  # dict
-        user_dict["user_id"] = str(user_dict["user_id"])  # UUID to str
-        user_dict["birth_day"] = str(user_dict["birth_day"])  # date to str
-        results.append(user_dict)  # Add new user to the list
-        f.seek(0)  # Go to the beginning of the file to overwrite it
-        f.write(json.dumps(results))  # Write the new list to the file (json)
+        # load the json file into a list of dicts (results)
+        results = json.load(f)
+        # convert the user object to a dict (user_dict)
+        user_dict = user.dict()
+        # append the user_dict to the results list of dicts (results)
+        results.append(user_dict)
+        # set the file cursor to the beginning of the file
+        f.seek(0)
+        # dump the results list of dicts to the json file
+        json.dump(results, f, default=str, indent=4)
+
+
+'''
+@deprecated
+#    with open("utils/users.json", "r+", encoding="utf_8") as f:
+#        # List[User]
+#        results = json.loads(f.read())
+#        # Convert to dict
+#        user_dict = user.dict()
+#        # UUID to str
+#        user_dict["user_id"] = str(user_dict["user_id"])
+#        # date to str
+#        user_dict["birth_day"] = str(user_dict["birth_day"])
+#        # Add new user to the list of users
+#        results.append(user_dict)
+#        # Go to the beginning of the file to overwrite it
+#        f.seek(0)
+#        # Write the new list to the file (json)
+#        f.write(json.dumps(results))
+'''
 
 
 # Login user
